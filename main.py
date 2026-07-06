@@ -4,7 +4,7 @@ import sqlite3
 import os
 
 # --- KONFIGURATSIYA ---
-TOKEN = "8888356925:AAGLC6sMRGVB4WyVxx_vLqYLMBLk7H77c-c"
+TOKEN = "8888356925:AAHanMBl9LWRlhjOS0ft9RgfiN91esqkTpo"
 ADMIN_ID = 8125292730
 CHANNEL = "@Darkmovieuz1"
 GROUP = "@darkmoviechat"
