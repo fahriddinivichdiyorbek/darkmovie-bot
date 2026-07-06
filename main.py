@@ -127,4 +127,24 @@ def ask_delete(message):
     msg = bot.send_message(message.chat.id, "❌ O'chirmoqchi bo'lgan kino kodini yuboring:")
     bot.register_next_step_handler(msg, lambda m: [cur.execute("DELETE FROM movies WHERE code=?", (m.text,)), conn.commit(), bot.send_message(m.chat.id, "🗑 O'chirildi!")])
 
-bot.infinity_polling()
+from flask import Flask
+import threading
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    print("Ping olindi, bot tirik!")
+    return "Bot ishlayapti!"
+
+def run_web():
+    app.run(host='0.0.0.0', port=10000)
+
+def keep_alive():
+    t = threading.Thread(target=run_web)
+    t.start()
+
+if __name__ == "__main__":
+    keep_alive()
+    print("Bot muvaffaqiyatli ishga tushdi!")
+    bot.infinity_polling()
